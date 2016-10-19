@@ -309,44 +309,39 @@ class Main extends egret.DisplayObjectContainer {
                     self.Player.PersonBitmap.texture = texture;
                     n++;
                     if(n >= standArr.length){
-                          n=0;
-                          }
-                          }
+                        n=0;
+                    }
+                }
                           
-
-
-
-                    if(self.Player.GetIfWalk() && self.Player.GetIfGoRight() && !self.Player.GetIfIdle()){
-                        n = 0;
-                        GOL = 0;
+                if(self.Player.GetIfWalk() && self.Player.GetIfGoRight() && !self.Player.GetIfIdle()){
+                    n = 0;
+                    GOL = 0;
                     var textureName = "00" + walkRightArr[GOR] + "_png";
                     var texture : egret.Texture = RES.getRes(textureName);
                     self.Player.PersonBitmap.texture = texture;
                     GOR++;
                     if(GOR >= walkRightArr.length){
-                          GOR=0;
-                          }
-                          }
+                        GOR=0;
+                    }
+                }
 
-                          if(self.Player.GetIfWalk() && self.Player.GetIfGoLeft() && !self.Player.GetIfIdle()){
-                              n = 0;
-                              GOR = 0;
+                if(self.Player.GetIfWalk() && self.Player.GetIfGoLeft() && !self.Player.GetIfIdle()){
+                    n = 0;
+                    GOR = 0;
                     var textureName = "00" + walkRightArr[GOL] + "_2_png";
                     var texture : egret.Texture = RES.getRes(textureName);
                     self.Player.PersonBitmap.texture = texture;
                     GOL++;
                     if(GOL >= walkRightArr.length){
                           GOL=0;
-                          }
                     }
+                }
+            }
 
-                    }
-
-
-                    if(self.Player.PersonBitmap.x == self.EventPoint.x && self.Player.PersonBitmap.y == self.EventPoint.y){
-                     self.Player.SetState(new IdleState(),self);
-                    }
-                },self);
+            if(self.Player.PersonBitmap.x == self.EventPoint.x && self.Player.PersonBitmap.y == self.EventPoint.y){
+                self.Player.SetState(new IdleState(),self);
+            }
+        },self);
 
                 // var texture : egret.Texture = self.IdlePictures[n];
                 // self.PlayerPic.texture = texture;
@@ -360,29 +355,18 @@ class Main extends egret.DisplayObjectContainer {
                 //           }
             
             //egret.Tween.get(self.Player.PersonBitmap).call(IdleAnimation,self);
-        }
-
-        
-
-        
-
-        
-
-        var FramePlus : Function = function(){
-            egret.Ticker.getInstance().register(()=>{
-            zhen++;
-            if(zhen == 400)
-            zhen = 0;
-            },self)
-        }
-
-
-
-
-        MoveAnimation();
-        
-        FramePlus();
     }
+
+    var FramePlus : Function = function(){
+        egret.Ticker.getInstance().register(()=>{
+        zhen++;
+        if(zhen == 400)
+            zhen = 0;
+        },self)
+    }
+    MoveAnimation();        
+    FramePlus();
+}
 
     /**
      * 切换描述内容
